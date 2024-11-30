@@ -1,0 +1,568 @@
+Container(
+            child:Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                        'Tugas tahap dasar'),
+                    Builder(
+                      //membuat context baru yang tingkatannya sama seperti scaffold untuk mengakses navigator
+                      builder: (context) {
+                        return ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Homepage()),
+                            );
+                          },
+                          child: const Text(
+                              style: TextStyle(color: Colors.black), 'Login'),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+
+
+
+
+
+import 'package:critain/mark.dart';
+import 'package:flutter/material.dart';
+import 'package:critain/fiturApk.dart';
+import 'package:critain/loginpage.dart';
+import 'package:critain/notifikasi.dart';
+import 'package:critain/postingan.dart';
+
+class Profile extends StatefulWidget {
+   Profile({super.key});
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+
+     List<Tab> tabs = <Tab>[
+  Tab(text: 'Zeroth'),
+  Tab(text: 'First'),
+  Tab(text: 'Second'),
+];
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255,19,19,30),
+      body:
+          
+          // Row(
+          //   children: [
+          //     Expanded(
+          //       child: Container(
+          //         color:  Color.fromARGB(255, 22, 20, 21),
+          //         child: Row(
+          //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //           children: [
+          //             Container(
+          //               child: IconButton(
+          //                 onPressed: () {},
+          //                 icon:  Icon(
+          //                   Icons.article_sharp,
+          //                   color: Color.fromARGB(255, 160, 100, 255),
+          //                 ),
+          //               ),
+          //             ),
+          //             Container(
+          //               child: IconButton(
+          //                 onPressed: () {
+          //                   Navigator.pushReplacement(context,
+          //                       MaterialPageRoute(builder: (context) => Mark()));
+          //                 },
+          //                 icon:  Icon(Icons.bookmark),
+          //               ),
+          //             )
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          // Container(
+          //   decoration:  BoxDecoration(
+          //       border: Border(
+          //           bottom: BorderSide(color: Color.fromARGB(255, 31, 27, 28)))),
+          //   child: Padding(
+          //     padding:  EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+          //     child: Column(
+          //       children: [
+          //          Row(
+          //           children: [
+          //             CircleAvatar(
+          //               radius: 14.0,
+          //               backgroundImage: NetworkImage(
+          //                   'https://images.unsplash.com/photo-1469598614039-ccfeb0a21111?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D'),
+          //             ),
+          //             SizedBox(
+          //               width: 8.0,
+          //             ),
+          //             Text(
+          //               'user1',
+          //               style: TextStyle(
+          //                   fontSize: 17,
+          //                   fontWeight: FontWeight.bold,
+          //                   color: Colors.white),
+          //             ),
+          //           ],
+          //         ),
+          //          SizedBox(
+          //           height: 15.0,
+          //         ),
+          //          Row(
+          //           children: [
+          //             Expanded(
+          //               child: Wrap(
+          //                 children: [
+          //                   Text(
+          //                     'tugas tahap individu',
+          //                     style: TextStyle(fontSize: 14, color: Colors.white),
+          //                   ),
+          //                 ],
+          //               ),
+          //             )
+          //           ],
+          //         ),
+          //          SizedBox(
+          //           height: 10.0,
+          //         ),
+          //          Row(
+          //           children: [
+          //             Expanded(
+          //               child: Center(
+          //                 child: Image(
+          //                   image: AssetImage('assets/tugas.jpeg'),
+          //                 ),
+          //               ),
+          //             )
+          //           ],
+          //         ),
+          //          SizedBox(
+          //           height: 10.0,
+          //         ),
+          //         Row(
+          //           children: [
+          //             IconButton(
+          //                 onPressed: () {},
+          //                 icon:  Icon(
+          //                   Icons.thumb_up_alt_outlined,
+          //                   color: Colors.white,
+          //                 )),
+          //              SizedBox(
+          //               width: 5.0,
+          //             ),
+          //              Text(
+          //               '1.8k',
+          //               style: TextStyle(color: Colors.white),
+          //             ),
+          //              SizedBox(
+          //               width: 12.0,
+          //             ),
+          //             IconButton(
+          //                 onPressed: () {},
+          //                 icon:  Icon(Icons.comment, color: Colors.white)),
+          //              SizedBox(
+          //               width: 5.0,
+          //             ),
+          //              Text(
+          //               '755',
+          //               style: TextStyle(color: Colors.white),
+          //             ),
+          //             Expanded(
+          //               child: Row(
+          //                 mainAxisAlignment: MainAxisAlignment.end,
+          //                 children: [
+          //                   IconButton(
+          //                     onPressed: () {},
+          //                     icon:  Icon(Icons.bookmark_border_outlined),
+          //                     color: Colors.white,
+          //                   )
+          //                 ],
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+                // ],
+              // ),
+            // ),
+          // ),
+        ],
+      ),
+    );
+  }
+}
+
+const List<Tab> tabs = <Tab>[
+  Tab(text: 'Zeroth'),
+  Tab(text: 'First'),
+  Tab(text: 'Second'),
+];
+
+class TabControllerExample extends StatefulWidget {
+  const TabControllerExample({super.key});
+
+  @override
+  State<TabControllerExample> createState() => _TabControllerExampleState();
+}
+
+class _TabControllerExampleState extends State<TabControllerExample> {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: tabs.length,
+      // The Builder widget is used to have a different BuildContext to access
+      // closest DefaultTabController.
+      child: Builder(builder: (BuildContext context) {
+        final TabController tabController = DefaultTabController.of(context);
+        tabController.addListener(() {
+          if (!tabController.indexIsChanging) {
+            // Your code goes here.
+            // To get index of current tab use tabController.index
+          }
+        });
+        return Scaffold(
+          appBar: AppBar(
+            bottom: const TabBar(
+              tabs: tabs,
+            ),
+          ),
+          body: TabBarView(
+            children: tabs.map((Tab tab) {
+              return Center(
+                child: Text(
+                  '${tab.text!} Tab',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              );
+            }).toList(),
+          ),
+        );
+      }),
+    );
+  }
+}
+
+
+
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class Profile extends StatefulWidget {
+  const Profile({super.key});
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  @override
+  Widget build(BuildContext context) {
+    return const DefaultTabController(
+      length: 3,
+      child: Scaffold(
+       backgroundColor: Color.fromARGB(255, 19,19,30),
+       body: ,
+      ),
+    );
+  }
+} 
+
+
+
+
+Row(
+                                  children: [
+                                    Text(
+                                        style: TextStyle(color: Colors.white),
+                                        'Pengikut'),
+                                    SizedBox(
+                                      width: 6.0,
+                                    ),
+                                    Text(
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700),
+                                        '12'),
+                                    SizedBox(
+                                      width: 20.0,
+                                    ),
+                                    Text(
+                                        style: TextStyle(color: Colors.white),
+                                        'Diikuti'),
+                                    SizedBox(
+                                      width: 6.0,
+                                    ),
+                                    Text(
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700),
+                                        '100'),
+                                  ],
+                                )
+
+
+
+
+
+
+
+
+
+import 'package:flutter/material.dart';
+import 'package:critain/bottomnav.dart';
+
+class Aplikasi extends StatefulWidget {
+  const Aplikasi({super.key});
+
+  @override
+  State<Aplikasi> createState() => _AplikasiState();
+}
+
+class _AplikasiState extends State<Aplikasi> {
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final _formGlobalKey = GlobalKey<FormState>(); //agar bisa menggunakan metode yang dibutuhkan
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          backgroundColor: Color.fromARGB(255,255,255,255),
+          // body: DecoratedBox(
+            // decoration: const BoxDecoration(
+              // image: DecorationImage(
+                  // image: AssetImage("assets/background.jpeg"),
+                  // fit: BoxFit.cover),
+            // ),
+            body: 
+            
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 60),
+                    child: Column(
+                      children: [
+                        Image(
+                          image: AssetImage('assets/splash.jpeg'),width: 37,height: 37,
+                        ),
+                        SizedBox(height: 50.0),
+                        Text(
+                          'Selamat Datang di',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            // color: Colors.white,
+                            color: Color.fromARGB(255, 31, 27, 28),
+                            fontSize: 30,
+                          ),
+                        ),
+                        Text(
+                          'critain',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 12, 187, 239),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 30,
+                          ),
+                        ),
+                        Image(
+                          image: AssetImage('assets/sosial.jpeg'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 12, 187, 239),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(35.0),
+                        topRight: Radius.circular(35.0),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Column(
+                        children: [
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Mulai',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
+                                  fontSize: 27,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5.0,
+                              ),
+                              Text(
+                                'crita',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 31, 27, 28),
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 27,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5.0,
+                              ),
+                              Text(
+                                'sesukamu!',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
+                                  fontSize: 27,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 25.0,
+                          ),
+                          Form(
+                            key: _formGlobalKey,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  width: 290,
+                                  child: TextFormField(
+                                    controller: _username,
+                                    decoration: const InputDecoration(
+                                        contentPadding: EdgeInsets.symmetric(
+                                            horizontal: 20.0),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30.0)),
+                                          borderSide:
+                                              BorderSide(color: Color.fromARGB(255, 255, 255, 255)),
+                                        ),
+                                        filled: true,
+                                        errorBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.red), borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                                        fillColor: Colors.white,
+                                        hintText: 'Username',
+                                        errorStyle: TextStyle(color: Colors.white)),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Username harus diisi';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                SizedBox(
+                                  width: 290,
+                                  child: TextFormField(
+                                    obscureText: true,
+                                    controller: _password,
+                                    decoration: const InputDecoration(
+                                        contentPadding: EdgeInsets.symmetric(
+                                            horizontal: 20.0),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(30.0),
+                                          ),
+                                        ),
+                                        filled: true,
+                                        errorBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.red), borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                                        fillColor: Colors.white,
+                                        hintText: 'Password',
+                                        errorStyle: TextStyle(color: Colors.white)),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Password harus diisi';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 20.0,
+                                ),
+                                SizedBox(
+                                  height: 54,
+                                  width: 290,
+                                  child: Builder(
+                                    builder: (context) {
+                                      return ElevatedButton(
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                                WidgetStateProperty.all<
+                                                    Color>(
+                                              const Color.fromARGB(
+                                                  255, 31, 27, 28),
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            if (_formGlobalKey.currentState!
+                                                .validate()) {
+                                              if (_username.text == '1' ||
+                                                  _password.text ==
+                                                      'user1234') {
+                                                Navigator.pushReplacement(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Homepage(),
+                                                  ),
+                                                );
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  const SnackBar(
+                                                    content: Text(
+                                                        'Username atau Password salah'),
+                                                  ),
+                                                );
+                                              }
+                                            }
+                                          },
+                                          child: const Text(
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 16),
+                                              'Masuk'));
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          // ),
+        ),
+      ),
+    );
+  }
+}
